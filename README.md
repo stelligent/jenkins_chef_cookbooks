@@ -7,6 +7,8 @@ Put this together using berkshelf, since it makes everything way easier. If you 
 
 ```
 gem install berkshelf
-berks install --path .
+berks install --path temp
+cp -R temp/* .
+rm -rf temp
 ```
 :books:
