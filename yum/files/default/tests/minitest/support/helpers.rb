@@ -1,4 +1,3 @@
-# Encoding: utf-8
 #
 # Cookbook Name:: yum_test
 # Recipe:: default
@@ -18,11 +17,7 @@
 # limitations under the License.
 #
 
-# an comment
-
-# Helpers
 module Helpers
-  # Yumtest
   module YumTest
     require 'chef/mixin/shell_out'
     include Chef::Mixin::ShellOut
@@ -36,7 +31,7 @@ module Helpers
     # end of the successful run, to cache the output to a file and
     # inspect its contents.
     def repo_enabled(repo)
-      shell_out('yum repolist enabled --verbose | grep Repo-id').stdout.include?(repo)
+      shell_out("yum repolist enabled --verbose | grep Repo-id").stdout.include?(repo)
     end
   end
 end

@@ -1,4 +1,3 @@
-# Encoding: utf-8
 #
 # Cookbook Name:: yum
 # Recipe:: yum
@@ -19,6 +18,6 @@
 # limitations under the License.
 #
 
-template '/etc/yum.conf' do
+template "/etc/yum.conf" do
   source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
 end

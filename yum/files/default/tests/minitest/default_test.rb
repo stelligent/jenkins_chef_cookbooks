@@ -1,4 +1,3 @@
-# Encoding: utf-8
 #
 # Cookbook Name:: yum
 # Recipe:: default
@@ -20,10 +19,10 @@
 
 require File.expand_path('../support/helpers', __FILE__)
 
-describe 'yum::default' do
+describe "yum::default" do
   include Helpers::YumTest
 
-  it 'Default recipe does nothing, so default_test does nothing' do
-    skip 'Default recipe does nothing so default test does nothing'
+  it "Default recipe does nothing, so default_test does nothing" do
+    skip "Default recipe does nothing so default test does nothing"
   end
 end
