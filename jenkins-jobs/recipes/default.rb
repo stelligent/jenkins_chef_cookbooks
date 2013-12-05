@@ -1,7 +1,7 @@
-commit_job_config = "/var/tmp/projectmonitor-trigger-config.xml"
+commit_job_config = "/var/tmp/commit-config.xml"
 
 template commit_job_config do
-  source 'commit-config.xml'
+  source 'commit-config.xml.erb'
 end
 
 jenkins_job 'commit-stage' do
