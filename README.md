@@ -14,7 +14,7 @@ rm -rf temp
 
 (berkshelf seemed to nuke the directory that you pass in with --path, so don't just try passing in the current directory. That took me a little while to figure out...)
 
-:books: 
+---
 
 The custom cookbooks are as follows:
 * jenkins-configuration: cookbooks to configure Jenkins jobs, views, etc.
