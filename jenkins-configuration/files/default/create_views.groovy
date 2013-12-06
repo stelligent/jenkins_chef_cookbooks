@@ -1,6 +1,19 @@
 import hudson.model.Hudson;
 import hudson.model.ListView;
 import hudson.model.View;
+import hudson.model.Hudson;
+import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
+import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
+
+INITIAL_JOB = "trigger-stage";
+pipelineView = new BuildPipelineView("trigger-stage",
+                                     "trigger-stage",
+                                     new DownstreamProjectGridBuilder(INITIAL_JOB),
+                                     "5",    //final String noOfDisplayedBuilds,
+                                     true,   //final boolean triggerOnlyLatestJob, 
+                                     null);  //final String cssUrl
+
+Hudson.instance.addView(pipelineView);
 
 
 

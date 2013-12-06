@@ -1,9 +1,19 @@
+trigger_job_config = "/var/tmp/trigger-config.xml"
 commit_job_config = "/var/tmp/commit-config.xml"
 acceptance_job_config = "/var/tmp/acceptance-config.xml"
 capacity_job_config = "/var/tmp/capacity-config.xml"
 exploratory_job_config = "/var/tmp/exploratory-config.xml"
 preproduction_job_config = "/var/tmp/preproduction-config.xml"
 production_job_config = "/var/tmp/production-config.xml"
+
+template trigger_job_config do
+  source 'trigger-config.xml.erb'
+end
+
+jenkins_job 'tigger-stage' do
+  action :create
+  config trigger_job_config
+end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
