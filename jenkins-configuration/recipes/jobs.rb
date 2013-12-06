@@ -59,12 +59,12 @@ jenkins_job 'preproduction-stage' do
 end
 
 
-template preproduction_job_config do
-  source 'preproduction-config.xml.erb'
+template production_job_config do
+  source 'production-config.xml.erb'
 end
 
-jenkins_job 'preproduction-stage' do
+jenkins_job 'production-stage' do
   action :create
-  config preproduction_job_config
+  config production_job_config
 end
 
