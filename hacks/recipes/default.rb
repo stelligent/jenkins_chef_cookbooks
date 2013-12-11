@@ -8,4 +8,3 @@ bash "soft link gem exe" do
   code "ln -s /usr/bin/gem /usr/local/bin/gem"
   user "jenkins"
 end
-
