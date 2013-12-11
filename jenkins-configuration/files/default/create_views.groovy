@@ -19,7 +19,7 @@ Hudson.instance.addView(pipelineView);
 
 pipeline = new ListView("pipeline", Hudson.instance);
 
-["commit-stage", "acceptance-stage", "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"].each { job ->
+["trigger-stage", "commit-stage", "acceptance-stage", "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"].each { job ->
 	pipeline.add(Hudson.instance.getJob(job));
 }
 
