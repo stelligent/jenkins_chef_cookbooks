@@ -18,6 +18,7 @@ rm -rf temp
 
 The custom cookbooks are as follows:
 * jenkins-configuration: cookbooks to configure Jenkins jobs, views, etc.
+* rvm: the one berkshelf pulls in is wicked old, and the override wasn't working. I just downloaded it manually.
 
 
 :books: 
