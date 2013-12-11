@@ -10,7 +10,7 @@ template trigger_job_config do
   source 'trigger-config.xml.erb'
 end
 
-jenkins_job 'tigger-stage' do
+jenkins_job 'trigger-stage' do
   action :create
   config trigger_job_config
 end
