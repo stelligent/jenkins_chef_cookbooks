@@ -6,6 +6,9 @@
     "yum": {
       "locked_version": "2.4.2"
     },
+    "rvm": {
+      "locked_version": "0.0.4"
+    },
     "java": {
       "locked_version": "1.15.4"
     },
