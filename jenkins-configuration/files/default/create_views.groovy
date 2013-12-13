@@ -6,8 +6,8 @@ import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
 
 INITIAL_JOB = "trigger-stage";
-pipelineView = new BuildPipelineView("trigger-stage",
-                                     "trigger-stage",
+pipelineView = new BuildPipelineView("Continuous Delivery Pipeline",
+                                     "Continuous Delivery Pipeline",
                                      new DownstreamProjectGridBuilder(INITIAL_JOB),
                                      "5",    //final String noOfDisplayedBuilds,
                                      true,   //final boolean triggerOnlyLatestJob, 
