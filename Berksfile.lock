@@ -9,6 +9,9 @@
     "python": {
       "locked_version": "1.4.4"
     },
+    "firefox": {
+      "locked_version": "1.0.7"
+    },
     "java": {
       "locked_version": "1.15.4"
     },
