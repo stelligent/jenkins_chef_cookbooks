@@ -78,3 +78,12 @@ jenkins_job 'production-stage' do
   config production_job_config
 end
 
+template setup_job_config do
+  source 'setup_job_config'
+end
+
+jenkins_job 'setup' do
+  action :create
+  config setup_job_config
+end
+
