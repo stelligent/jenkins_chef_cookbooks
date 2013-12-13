@@ -95,6 +95,7 @@
  gem install trollop cucumber watir
 ruby bin/create_cloudpatrol_stack_mock.rb 
 
+export CloudPatrolURL=http://54.212.208.108/
 cucumber cloudpatrol/features</command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
@@ -113,10 +114,10 @@ cucumber cloudpatrol/features</command>
   <buildWrappers>
     <ruby-proxy-object>
       <ruby-object ruby-class="Jenkins::Plugin::Proxies::BuildWrapper" pluginid="rvm">
-        <pluginid pluginid="rvm" ruby-class="String">rvm</pluginid>
         <object ruby-class="RvmWrapper" pluginid="rvm">
           <impl pluginid="rvm" ruby-class="String">1.9.3</impl>
         </object>
+        <pluginid pluginid="rvm" ruby-class="String">rvm</pluginid>
       </ruby-object>
     </ruby-proxy-object>
   </buildWrappers>
