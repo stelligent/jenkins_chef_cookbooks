@@ -13,6 +13,16 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
+    <hudson.tasks.Shell>
+      <command># create ec2 keypair
+# spin up a new environment with that keypair
+# look up hostname from stack_id
+# bees up -s 4 -g public -k new_key_pair
+# bees attack -n 10000 -c 250 -u hostname
+# bees down
+# nuke environment
+# nuke keypair</command>
+    </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
       <configs>
         <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
