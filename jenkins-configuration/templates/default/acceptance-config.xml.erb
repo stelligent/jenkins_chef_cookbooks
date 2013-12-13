@@ -11,7 +11,7 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>https://github.com/stelligent/cd_blueprints</url>
+        <url>https://github.com/stelligent/cdri.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -50,9 +50,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>gem install aws-sdk-core --pre
-gem install trollop
-ruby bin/create_cloudpatrol_stack.rb </command>
+      <command>ruby bin/create_cloudpatrol_stack.rb </command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
       <configs>
