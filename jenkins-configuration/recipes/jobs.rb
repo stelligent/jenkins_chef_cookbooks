@@ -5,6 +5,7 @@ capacity_job_config = "/var/tmp/capacity-config.xml"
 exploratory_job_config = "/var/tmp/exploratory-config.xml"
 preproduction_job_config = "/var/tmp/preproduction-config.xml"
 production_job_config = "/var/tmp/production-config.xml"
+setup_job_config = "/var/tmp/setup-config.xml"
 
 template trigger_job_config do
   source 'trigger-config.xml.erb'
