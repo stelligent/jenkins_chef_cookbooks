@@ -79,7 +79,7 @@ jenkins_job 'production-stage' do
 end
 
 template setup_job_config do
-  source 'setup_job_config'
+  source 'setup_job_config.xml.erb'
 end
 
 jenkins_job 'setup' do
