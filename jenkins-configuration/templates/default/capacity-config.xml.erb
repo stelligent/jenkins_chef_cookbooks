@@ -55,7 +55,7 @@
 aws ec2 create-key-pair  --key-name bwmgtempkey --output text --query KeyMaterial &gt; bwmgtempkey.pem
 
 # spin up a new environment with that keypair
-ruby bin/create_cloudpatrol_stack.rb --ssh-key-name bwmgtempkey
+ruby bin/create_cloudpatrol_stack_mock.rb --ssh-key-name bwmgtempkey
 
 # look up hostname from stack_id
 # bees up -s 4 -g public -k new_key_pair
@@ -73,26 +73,6 @@ aws ec2 delete-key-pair  --key-name bwmgtempkey</command>
           <projects>exploratory-stage</projects>
           <condition>ALWAYS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
-          <block>
-            <buildStepFailureThreshold>
-              <name>FAILURE</name>
-              <ordinal>2</ordinal>
-              <color>RED</color>
-              <completeBuild>true</completeBuild>
-            </buildStepFailureThreshold>
-            <unstableThreshold>
-              <name>UNSTABLE</name>
-              <ordinal>1</ordinal>
-              <color>YELLOW</color>
-              <completeBuild>true</completeBuild>
-            </unstableThreshold>
-            <failureThreshold>
-              <name>FAILURE</name>
-              <ordinal>2</ordinal>
-              <color>RED</color>
-              <completeBuild>true</completeBuild>
-            </failureThreshold>
-          </block>
           <buildAllNodesWithLabel>false</buildAllNodesWithLabel>
         </hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
       </configs>

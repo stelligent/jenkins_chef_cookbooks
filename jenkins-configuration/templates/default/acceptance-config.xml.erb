@@ -91,12 +91,14 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command> gem install aws-sdk-core --pre
- gem install trollop cucumber watir
+      <command># gem install aws-sdk-core --pre
+# gem install trollop cucumber watir net-ssh
 ruby bin/create_cloudpatrol_stack_mock.rb 
-
-export CloudPatrolURL=http://54.212.208.108/
-cucumber cloudpatrol/features</command>
+aws s3 cp s3://stelligent_pem_files/jonny-labs-west2.pem . --region=us-east-1
+export user=ec2-user
+export host=50.112.73.179
+export key=./jonny-labs-west2.pem 
+cucumber cloudpatrol/features/infrastructure.feature</command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
       <configs>
@@ -114,10 +116,10 @@ cucumber cloudpatrol/features</command>
   <buildWrappers>
     <ruby-proxy-object>
       <ruby-object ruby-class="Jenkins::Plugin::Proxies::BuildWrapper" pluginid="rvm">
+        <pluginid pluginid="rvm" ruby-class="String">rvm</pluginid>
         <object ruby-class="RvmWrapper" pluginid="rvm">
           <impl pluginid="rvm" ruby-class="String">1.9.3</impl>
         </object>
-        <pluginid pluginid="rvm" ruby-class="String">rvm</pluginid>
       </ruby-object>
     </ruby-proxy-object>
   </buildWrappers>
