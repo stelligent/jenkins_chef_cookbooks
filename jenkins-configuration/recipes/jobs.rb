@@ -14,6 +14,7 @@ end
 jenkins_job 'trigger-stage' do
   action :create
   config trigger_job_config
+  retries 10
 end
 
 template commit_job_config do
