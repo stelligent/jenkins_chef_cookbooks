@@ -15,21 +15,25 @@ jenkins_job 'trigger-stage' do
   action :create
   config trigger_job_config
   retries 10
+  retry_delay 30
 end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
+  retries 10
 end
 
 jenkins_job 'commit-stage' do
   action :create
   config commit_job_config
+  retries 10
 end
 
 
 
 template acceptance_job_config do
   source 'acceptance-config.xml.erb'
+  retries 10
 end
 
 jenkins_job 'acceptance-stage' do
