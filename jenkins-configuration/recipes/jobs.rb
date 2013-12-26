@@ -14,7 +14,7 @@ end
 jenkins_job 'trigger-stage' do
   action :create
   config trigger_job_config
-  retries 10
+  retries 30
   retry_delay 30
 end
 
