@@ -14,34 +14,25 @@ end
 jenkins_job 'trigger-stage' do
   action :create
   config trigger_job_config
-  retries 30
-  retry_delay 30
 end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
-  retries 10
 end
 
 jenkins_job 'commit-stage' do
   action :create
   config commit_job_config
-  retries 10
 end
-
-
 
 template acceptance_job_config do
   source 'acceptance-config.xml.erb'
-  retries 10
 end
 
 jenkins_job 'acceptance-stage' do
   action :create
   config acceptance_job_config
 end
-
-
 
 template capacity_job_config do
   source 'capacity-config.xml.erb'
@@ -52,8 +43,6 @@ jenkins_job 'capacity-stage' do
   config capacity_job_config
 end
 
-
-
 template exploratory_job_config do
   source 'exploratory-config.xml.erb'
 end
@@ -63,8 +52,6 @@ jenkins_job 'exploratory-stage' do
   config exploratory_job_config
 end
 
-
-
 template preproduction_job_config do
   source 'preproduction-config.xml.erb'
 end
@@ -73,7 +60,6 @@ jenkins_job 'preproduction-stage' do
   action :create
   config preproduction_job_config
 end
-
 
 template production_job_config do
   source 'production-config.xml.erb'
