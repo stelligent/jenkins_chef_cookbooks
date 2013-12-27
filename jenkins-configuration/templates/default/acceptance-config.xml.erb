@@ -90,8 +90,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command># gem install aws-sdk-core --pre
-# gem install trollop cucumber watir net-ssh
+      <command>gem install aws-sdk-core --pre
+gem install trollop cucumber watir net-ssh
 ruby bin/create_cloudpatrol_stack_mock.rb 
 aws s3 cp s3://stelligent_pem_files/jonny-labs-west2.pem . --region=us-east-1
 export user=ec2-user
