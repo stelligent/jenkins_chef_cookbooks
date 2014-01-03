@@ -62,6 +62,7 @@ def action_run # rubocop:disable MethodLength
 
   je = jenkins_execute(command) do
     cwd home
+    retries 10
     block { |stdout| new_resource.block.call(stdout) } if new_resource.block
   end
 

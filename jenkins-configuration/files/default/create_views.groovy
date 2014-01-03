@@ -5,25 +5,39 @@ import hudson.model.Hudson;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
 
+def addView(title, view) {
+  views = Hudson.instance.getViews();
+  foundViews = views.findAll{ viewIterator ->
+    viewIterator.getViewName().equals(title);
+  }
+  if(foundViews.size() == 0) {
+    Hudson.instance.addView(view);
+    println "Successfully create a view for the ${title}";
+  } 
+  else {
+    println "The view ${title} already exists, not adding again";
+  }
+}
+
 INITIAL_JOB = "trigger-stage";
-pipelineView = new BuildPipelineView("Continuous Delivery Pipeline",
-                                     "Continuous Delivery Pipeline",
+pipelineViewName = "Continuous Delivery Pipeline"
+pipelineView = new BuildPipelineView(pipelineViewName,
+                                     pipelineViewName,
                                      new DownstreamProjectGridBuilder(INITIAL_JOB),
                                      "5",    //final String noOfDisplayedBuilds,
                                      true,   //final boolean triggerOnlyLatestJob, 
                                      null);  //final String cssUrl
 
-Hudson.instance.addView(pipelineView);
+addView(pipelineViewName, pipelineView);
 
-
-
+//////
 pipeline = new ListView("pipeline", Hudson.instance);
-
-["trigger-stage", "commit-stage", "acceptance-stage", "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"].each { job ->
-	pipeline.add(Hudson.instance.getJob(job));
+pipeline_jobs = ["trigger-stage", "commit-stage", "acceptance-stage", 
+                 "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"]
+pipeline_jobs.each { job ->
+  pipeline.add(Hudson.instance.getJob(job));
 }
 
-Hudson.instance.addView(pipeline);
+addView("pipeline",pipeline);
 
-println "Successfully create a view for the pipeline";
 Hudson.instance.save();
