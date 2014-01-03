@@ -37,7 +37,7 @@ def action_run # rubocop:disable MethodLength
 
   cli_jar = ::File.join(home, 'jenkins-cli.jar')
   remote_file cli_jar do
-    retries 10
+    retries 100
     source "#{url}/jnlpJars/jenkins-cli.jar"
     not_if { ::File.exists?(cli_jar) }
   end
