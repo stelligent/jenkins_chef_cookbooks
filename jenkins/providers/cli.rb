@@ -35,6 +35,7 @@ def action_run # rubocop:disable MethodLength
     path node['jenkins']['node']['home']
   end
 
+  log "HERE IS THE FFFFFF URL: #{url}"
   cli_jar = ::File.join(home, 'jenkins-cli.jar')
   remote_file cli_jar do
     retries 10
