@@ -35,11 +35,8 @@ def action_run # rubocop:disable MethodLength
     path node['jenkins']['node']['home']
   end
 
-  log "HERE IS THE FFFFFF URL: #{url}"
   cli_jar = ::File.join(home, 'jenkins-cli.jar')
   remote_file cli_jar do
-    retries 10
-    retry_delay 10
     source "#{url}/jnlpJars/jenkins-cli.jar"
     not_if { ::File.exists?(cli_jar) }
   end
@@ -65,8 +62,6 @@ def action_run # rubocop:disable MethodLength
 
   je = jenkins_execute(command) do
     cwd home
-    retries 10
-    retry_delay 10
     block { |stdout| new_resource.block.call(stdout) } if new_resource.block
   end
 
