@@ -5,3 +5,9 @@ bash 'setup git for jenkins user' do
   END
 end
 
+bash 'setup known hosts for jenkins user' do
+  code <<-END
+    ssh-keyscan github.com > /var/lib/jenkins/.ssh/known_hosts
+    chown jenkins:jenkins /var/lib/jenkins/.ssh/known_hosts
+  END
+end
