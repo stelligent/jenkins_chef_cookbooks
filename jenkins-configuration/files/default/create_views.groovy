@@ -30,13 +30,12 @@ pipelineView = new BuildPipelineView(pipelineViewName,
 
 addView(pipelineViewName, pipelineView);
 
-//////
-pipeline = new ListView("pipeline", Hudson.instance);
-pipeline_jobs = ["trigger-stage", "commit-stage", "acceptance-stage", 
-                 "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"]
-pipeline_jobs.each { job ->
-  pipeline.add(Hudson.instance.getJob(job));
-}
+// pipeline = new ListView("pipeline", Hudson.instance);
+// pipeline_jobs = ["trigger-stage", "commit-stage", "acceptance-stage", 
+//                 "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"]
+// pipeline_jobs.each { job ->
+//  pipeline.add(Hudson.instance.getJob(job));
+// }
 
 addView("pipeline",pipeline);
 
