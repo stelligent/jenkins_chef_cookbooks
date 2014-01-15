@@ -37,6 +37,6 @@ addView(pipelineViewName, pipelineView);
 //  pipeline.add(Hudson.instance.getJob(job));
 // }
 
-addView("pipeline",pipeline);
+// addView("pipeline",pipeline);
 
 Hudson.instance.save();
