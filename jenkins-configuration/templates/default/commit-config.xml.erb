@@ -58,7 +58,9 @@ bundle install
 bundle exec rake db:setup
 bundle exec rake db:test:prepare
 bundle exec rspec spec/
-</command>
+
+gem install brakeman --version 2.1.1
+brakeman -o brakeman-output.tabs</command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
       <configs>
@@ -72,7 +74,30 @@ bundle exec rspec spec/
       </configs>
     </hudson.plugins.parameterizedtrigger.TriggerBuilder>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.plugins.brakeman.BrakemanPublisher plugin="brakeman@0.7">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[BRAKEMAN] </pluginName>
+      <defaultEncoding>UTF-8</defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.38">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <outputFile>brakeman-output.tabs</outputFile>
+    </hudson.plugins.brakeman.BrakemanPublisher>
+  </publishers>
   <buildWrappers>
     <ruby-proxy-object>
       <ruby-object ruby-class="Jenkins::Plugin::Proxies::BuildWrapper" pluginid="rvm">
