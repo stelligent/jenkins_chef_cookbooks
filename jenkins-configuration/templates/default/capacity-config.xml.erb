@@ -54,7 +54,7 @@
 aws ec2 create-key-pair  --key-name bwmgtempkey --output text --query KeyMaterial &gt; bwmgtempkey.pem
 
 # spin up a new environment with that keypair
-ruby bin/create_cloudpatrol_stack_mock.rb --ssh-key-name bwmgtempkey
+ruby bin/create_canaryboard_stack_mock.rb --ssh-key-name bwmgtempkey
 
 # look up hostname from stack_id
 # bees up -s 4 -g public -k new_key_pair
