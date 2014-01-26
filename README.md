@@ -20,5 +20,28 @@ The custom cookbooks are as follows:
 * jenkins-configuration: cookbooks to configure Jenkins jobs, views, etc.
 * rvm: the one berkshelf pulls in is wicked old, and the override wasn't working. I just downloaded it manually.
 
+How to use this repository
+======================
+
+This repository is design to be used as the custom Chef cookbooks repository for a Jenkins stack built using Amazon's OpsWorks service. I suppose you could use it to build a custom Jenkins server without using OpsWorks, but I haven't tried that so if you give it a shot you're on your own. :)
+
+If you're building your OpsWorks script using the Ruby SDK, it'll look something like this:
+
+    stack_params = {
+      name: "Jenkins Server", 
+      region: "us-west-2", 
+      default_os: 'Amazon Linux',
+      service_role_arn: 'arn:aws:iam::123467890:role/aws-opsworks-service-role', 
+      default_instance_profile_arn: 'arn:aws:iam::123467890:instance-profile/jenkins',
+      custom_json: custom_json,
+      use_custom_cookbooks: true,
+      custom_cookbooks_source: {
+          type: 'git',
+          url: 'https://github.com/stelligent/jenkins_chef_cookbooks.git'
+        }
+    }
+
+    stack = ops.create_stack stack_params
+
 
 :books: 
