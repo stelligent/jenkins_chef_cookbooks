@@ -18,7 +18,7 @@ end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
-  log "#{node['pipeline']['source']}"
+  Chef::Log.info("JONNY LOOK AT THIS #{node['pipeline']['source']}")
 
   variables(
     { :source_repo => node['pipeline']['source'] }
