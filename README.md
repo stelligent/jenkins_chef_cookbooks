@@ -51,4 +51,9 @@ If you've made changes to the Jenkins server configuration, it will not be persi
 The templates don't do much templating (only the source control repo URL) so you can just copy the XML and paste it into the template file.
 
 **Note**: The groovy scripts that inject the job configuration will crash and burn if there is any whitespace at the beginning of the file. Make sure that there isn't any whitespace at the beginning of the XML document. 
+
+questions?
+====
+If you have any issues, feel free to open an issue or make a pull request. Alternatively, you can reach out on twitter: @jonathansywulak
+
 :books: 
