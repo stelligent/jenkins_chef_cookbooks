@@ -20,7 +20,7 @@ The custom cookbooks are as follows:
 * jenkins-configuration: cookbooks to configure Jenkins jobs, views, etc.
 * rvm: the one berkshelf pulls in is wicked old, and the override wasn't working. I just downloaded it manually.
 
-How to use this repository
+how to use this repository
 ======================
 
 This repository is design to be used as the custom Chef cookbooks repository for a Jenkins stack built using Amazon's OpsWorks service. I suppose you could use it to build a custom Jenkins server without using OpsWorks, but I haven't tried that so if you give it a shot you're on your own. :)
@@ -43,5 +43,12 @@ If you're building your OpsWorks script using the Ruby SDK, it'll look something
 
     stack = ops.create_stack stack_params
 
+how to update jenkins configuration:
+====
 
+If you've made changes to the Jenkins server configuration, it will not be persisted if the server goes down. If you'd like to commit that configuration to a source control repo, fork this repo and look in the jenkins-configuration cookbook. In there you will find various ERB template files, each full of XML. These are the raw Jenkins configuration files. You can find this XML by configuring the jobs on the Jenkins server, and then changing the URL. The Jenkins job configure URL will end in /jobname/configure; if you go to /jobname/config.xml you'll see the pure XML. 
+
+The templates don't do much templating (only the source control repo URL) so you can just copy the XML and paste it into the template file.
+
+**Note**: The groovy scripts that inject the job configuration will crash and burn if there is any whitespace at the beginning of the file. Make sure that there isn't any whitespace at the beginning of the XML document. 
 :books: 
