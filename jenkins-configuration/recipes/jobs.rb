@@ -18,9 +18,9 @@ end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
-  variables({
-     :source_repo => node['pipeline']['source']
-  })
+  variables(
+    { :source_repo => node['pipeline']['source'] }
+  )
 end
 
 jenkins_job 'commit-stage' do
