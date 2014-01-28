@@ -9,6 +9,10 @@ setup_job_config = "/var/tmp/setup-config.xml"
 
 template trigger_job_config do
   source 'trigger-config.xml.erb'
+
+  variables(
+    { :source_repo => node['pipeline']['source'] }
+  )
 end
 
 jenkins_job 'trigger-stage' do
@@ -18,7 +22,6 @@ end
 
 template commit_job_config do
   source 'commit-config.xml.erb'
-  Chef::Log.info("JONNY LOOK AT THIS #{node['pipeline']['source']}")
 
   variables(
     { :source_repo => node['pipeline']['source'] }
