@@ -6,6 +6,7 @@ exploratory_job_config = "/var/tmp/exploratory-config.xml"
 preproduction_job_config = "/var/tmp/preproduction-config.xml"
 production_job_config = "/var/tmp/production-config.xml"
 setup_job_config = "/var/tmp/setup-config.xml"
+jenkins_test_config = "/var/tmp/setup-config.xml"
 
 template trigger_job_config do
   source 'trigger-config.xml.erb'
@@ -76,6 +77,15 @@ end
 jenkins_job 'production-stage' do
   action :create
   config production_job_config
+end
+
+template jenkins_test_config do
+  source 'jenkins-test-config.xml.erb'
+end
+
+jenkins_job 'jenkins-test' do
+  action :create
+  config jenkins_test_config
 end
 
 # template setup_job_config do
