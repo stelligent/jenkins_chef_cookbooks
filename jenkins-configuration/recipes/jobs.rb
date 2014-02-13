@@ -1,5 +1,4 @@
-#jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"]
-params = node['pipeline']['jobs'].collect { |job| {  :name => job,  :source => "#{job}-config.xml.erb",  :target => "/var/tmp/#{job}-config.xml" } }
+params = node['pipeline']['jobs'].collect { |job| {  :name => job,  :source => "#{job}.xml.erb",  :target => "/var/tmp/#{job}.xml" } }
 
 
 params.each do |param|
@@ -12,7 +11,7 @@ params.each do |param|
     )
   end
 
-  jenkins_job "#{param[:name]}-stage" do
+  jenkins_job "#{param[:name]}" do
     action :create
     config param[:target]
   end
