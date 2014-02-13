@@ -1,5 +1,4 @@
 jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"] 
-
 params = jobs.collect { |job| {  :name => job,  :source => "#{job}-config.xml.erb",  :target => "/var/tmp/#{job}-config.xml" } }
 
 
