@@ -1,4 +1,4 @@
-jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"] 
+jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"]
 params = jobs.collect { |job| {  :name => job,  :source => "#{job}-config.xml.erb",  :target => "/var/tmp/#{job}-config.xml" } }
 
 
@@ -12,9 +12,9 @@ params.each do |param|
     )
   end
 
-  jenkins_job param[job] do
+  jenkins_job param[:name] do
     action :create
-    config param[source]
+    config param[:source]
   end
 
 end
