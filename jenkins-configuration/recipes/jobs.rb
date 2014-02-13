@@ -12,7 +12,7 @@ params.each do |param|
     )
   end
 
-  jenkins_job param[:name] do
+  jenkins_job "#{param[:name]}-stage" do
     action :create
     config param[:target]
   end
