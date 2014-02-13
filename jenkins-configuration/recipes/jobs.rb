@@ -1,5 +1,5 @@
-jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"]
-params = jobs.collect { |job| {  :name => job,  :source => "#{job}-config.xml.erb",  :target => "/var/tmp/#{job}-config.xml" } }
+#jobs = [ "trigger", "commit", "acceptance", "capacity", "exploratory", "preproduction", "production", "jenkins-test"]
+params = node['pipeline']['jobs'].collect { |job| {  :name => job,  :source => "#{job}-config.xml.erb",  :target => "/var/tmp/#{job}-config.xml" } }
 
 
 params.each do |param|
