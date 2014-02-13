@@ -14,7 +14,7 @@ params.each do |param|
 
   jenkins_job param[:name] do
     action :create
-    config param[:source]
+    config param[:target]
   end
 
 end
