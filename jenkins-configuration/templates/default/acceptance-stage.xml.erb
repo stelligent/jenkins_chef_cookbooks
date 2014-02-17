@@ -53,11 +53,11 @@
   <builders>
     <hudson.tasks.Shell>
       <command>infrastructure/build-infrastructure.sh 
-test-infrastructure.sh
-deploy.sh
-acceptance.sh
-#ami.sh
-clean-infrastructure.sh
+infrastructure/test-infrastructure.sh
+infrastructure/deploy.sh
+infrastructure/acceptance.sh
+#infrastructure/ami.sh
+infrastructure/clean-infrastructure.sh
 </command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
