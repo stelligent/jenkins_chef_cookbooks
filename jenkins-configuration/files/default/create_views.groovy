@@ -54,9 +54,9 @@ pipelineView = new BuildPipelineView(pipelineViewName,
 addView(pipelineViewName, pipelineView);
 
 deliveryPipelineView = new DeliveryPipelineView("Delivery Pipeline View");
-componentSpecs = new ArrayList<ComponentSpec>;
-componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"))
-deliveryPipelineView.setComponentSpecs(componentSpecs)
+componentSpecs = new ArrayList<ComponentSpec>();
+componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"));
+deliveryPipelineView.setComponentSpecs(componentSpecs);
 
 addView("Delivery Pipeline View", deliveryPipelineView);
 
