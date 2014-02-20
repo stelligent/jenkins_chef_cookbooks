@@ -50,6 +50,15 @@ If you've made changes to the Jenkins server configuration, it will not be persi
 
 The templates don't do much templating (only the source control repo URL) so you can just copy the XML and paste it into the template file.
 
+**experimental**: There's a script in the cdri repo which will look at an existing Jenkins server and extract the jobs. To try it, check out the cdri repo and run these commands (assuming you have the cdri and jenkins_chef_cookbooks repos checked out side by side):
+
+    ruby bin/export_jenkins_jobs.rb --server http://jenkinsserver/ --repo https://github.com/stelligent/canaryboard.git
+    cp -R /tmp/jenkins-jobs/*.xml.erb ../jenkins_chef_cookbooks/jenkins-configuration/templates/default/
+    cd ../jenkins_chef_cookbooks
+    git status
+    
+If you like what you see, you can commit the changes.
+
 **Note**: The groovy scripts that inject the job configuration will crash and burn if there is any whitespace at the beginning of the file. Make sure that there isn't any whitespace at the beginning of the XML document. 
 
 questions?
