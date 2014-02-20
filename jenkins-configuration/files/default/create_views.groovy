@@ -26,6 +26,7 @@ import hudson.model.View;
 import hudson.model.Hudson;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
+import se.diabol.jenkins.pipeline.DeliveryPipelineView;
 
 def addView(title, view) {
   views = Hudson.instance.getViews();
@@ -52,13 +53,11 @@ pipelineView = new BuildPipelineView(pipelineViewName,
 
 addView(pipelineViewName, pipelineView);
 
-// pipeline = new ListView("pipeline", Hudson.instance);
-// pipeline_jobs = ["trigger-stage", "commit-stage", "acceptance-stage", 
-//                 "capacity-stage", "exploratory-stage", "preproduction-stage", "production-stage"]
-// pipeline_jobs.each { job ->
-//  pipeline.add(Hudson.instance.getJob(job));
-// }
+deliveryPipelineView = new DeliveryPipelineView("Delivery Pipeline View");
+componentSpecs = new ArrayList<ComponentSpec>;
+componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"))
+deliveryPipelineView.setComponentSpecs(componentSpecs)
 
-// addView("pipeline",pipeline);
+addView("Delivery Pipeline View", deliveryPipelineView);
 
 Hudson.instance.save();
