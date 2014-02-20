@@ -26,7 +26,7 @@ import hudson.model.View;
 import hudson.model.Hudson;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
-import se.diabol.jenkins.pipeline.DeliveryPipelineView;
+import se.diabol.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +44,6 @@ def addView(title, view) {
     println "The view ${title} already exists, not adding again";
   }
 }
-
 INITIAL_JOB = "trigger-stage";
 pipelineViewName = "Continuous Delivery Pipeline";
 pipelineView = new BuildPipelineView(pipelineViewName,
@@ -55,7 +54,6 @@ pipelineView = new BuildPipelineView(pipelineViewName,
                                      null);  //final String cssUrl
 
 addView(pipelineViewName, pipelineView);
-
 deliveryPipelineView = new DeliveryPipelineView("Delivery Pipeline View");
 componentSpecs = new ArrayList<ComponentSpec>();
 componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"));
