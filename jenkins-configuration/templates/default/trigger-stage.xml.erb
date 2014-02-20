@@ -3,7 +3,12 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <se.diabol.jenkins.pipeline.PipelineProperty plugin="delivery-pipeline-plugin@0.6.10">
+      <taskName>trigger</taskName>
+      <stageName>Commit Stage</stageName>
+    </se.diabol.jenkins.pipeline.PipelineProperty>
+  </properties>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.2">
     <scms>
       <hudson.plugins.git.GitSCM plugin="git@1.4.0">
