@@ -27,6 +27,9 @@ import hudson.model.Hudson;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
 import se.diabol.jenkins.pipeline.DeliveryPipelineView;
+import java.util.ArrayList;
+import java.util.List;
+
 
 def addView(title, view) {
   views = Hudson.instance.getViews();
