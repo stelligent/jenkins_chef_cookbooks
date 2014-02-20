@@ -43,7 +43,7 @@ def addView(title, view) {
 }
 
 INITIAL_JOB = "trigger-stage";
-pipelineViewName = "Continuous Delivery Pipeline"
+pipelineViewName = "Continuous Delivery Pipeline";
 pipelineView = new BuildPipelineView(pipelineViewName,
                                      pipelineViewName,
                                      new DownstreamProjectGridBuilder(INITIAL_JOB),
