@@ -61,12 +61,12 @@ pipelineView = new BuildPipelineView(pipelineViewName,
 addView(pipelineViewName, pipelineView);
 
 
-//List<DeliveryPipelineView.ComponentSpec> componentSpecs = new ArrayList<DeliveryPipelineView.ComponentSpec>();
-//componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"));
+List<DeliveryPipelineView.ComponentSpec> componentSpecs = new ArrayList<DeliveryPipelineView.ComponentSpec>();
+componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "trigger-stage"));
 
-//DeliveryPipelineView view = new DeliveryPipelineView("Delivery Pipeline View");
-//view.setComponentSpecs(componentSpecs);
+DeliveryPipelineView view = new DeliveryPipelineView("Delivery Pipeline View");
+view.setComponentSpecs(componentSpecs);
 
-//addView("Delivery Pipeline View", view);
+addView("Delivery Pipeline View", view);
 
 Hudson.instance.save();
