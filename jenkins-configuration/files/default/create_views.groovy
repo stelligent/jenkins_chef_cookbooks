@@ -67,6 +67,6 @@ componentSpecs.add(new DeliveryPipelineView.ComponentSpec("Delivery Pipeline", "
 //DeliveryPipelineView view = new DeliveryPipelineView("Delivery Pipeline View");
 //view.setComponentSpecs(componentSpecs);
 
-addView("Delivery Pipeline View", view);
+//addView("Delivery Pipeline View", view);
 
 Hudson.instance.save();
