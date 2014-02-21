@@ -28,6 +28,10 @@ import au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView;
 import au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder;
 import se.diabol.jenkins.pipeline.DeliveryPipelineView;
 import se.diabol.jenkins.pipeline.DeliveryPipelineView.ComponentSpec;
+import se.diabol.jenkins.pipeline.model.Component;
+import se.diabol.jenkins.pipeline.model.Pipeline;
+import se.diabol.jenkins.pipeline.model.Stage;
+import se.diabol.jenkins.pipeline.model.Task;
 import java.util.ArrayList;
 import java.util.List;
 
